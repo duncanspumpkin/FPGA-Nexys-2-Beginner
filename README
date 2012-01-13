@@ -1,0 +1,5 @@
+First attempts at using the Nexys 2. All of these projects work correctly on my setup.
+
+ClkTest - Contains a simple counter that outputs to the LEDs and speed can be increased by using the switches.
+
+SevenSegTest - Contains a stopwatch program that is started and stopped by push buttons outputting to the seven segment display.
