@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: 
+-- Engineer: Duncan Frost
 -- 
 -- Create Date:    10:52:14 01/08/2012 
 -- Design Name: 
@@ -38,22 +38,16 @@ end SimpleCounter;
 
 architecture Behavioral of SimpleCounter is
      signal counter : STD_LOGIC_VECTOR(29 downto 0) := (others => '0');
-	  signal incHigh : STD_LOGIC := '0';
 begin
-
+	
+	--Led output
 	Led <= counter(29 downto 22);
 	
 	clk_proc: process(clk, counter)
 	  begin
-		  if rising_edge(clk) then
-			  counter(29 downto 15) <= counter(29 downto 15) + incHigh;
-			  
-			  incHigh <= counter(0) and counter(1) and counter(2) and
-			  counter(3) and counter(4) and counter(5) and counter(6) and
-			  counter(7) and counter(8) and counter(9) and counter(10) and
-			  counter(11) and counter(12) and counter(13) and counter(14);
-			  
-			  counter(14 downto 0) <= counter(14 downto 0)+sw(7 downto 0);--This of course is wrong!
+		  if rising_edge(clk) then  
+			  --Increments the counter related to the number of switches used
+			  counter(29 downto 0) <= counter(29 downto 0)+sw(7 downto 0);
 		  end if;
 	  end process;
 
